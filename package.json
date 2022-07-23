@@ -1,11 +1,16 @@
 {
+  "scripts": {
+    "start": "npx fitbit",
+    "build": "fitbit-build"
+  },
   "devDependencies": {
-    "@fitbit/sdk": "~4.3.0"
+    "@fitbit/sdk": "~4.3.0",
+    "@fitbit/sdk-cli": "^1.7.3"
   },
   "fitbit": {
     "appUUID": "f5a20ca1-92a6-49fc-97c4-0a59df6a7fb0",
     "appType": "clockface",
-    "appDisplayName": "DigitalClockTestAgain",
+    "appDisplayName": "DigitalClockTest",
     "iconFile": "resources/icon.png",
     "wipeColor": "",
     "requestedPermissions": [],
@@ -15,7 +20,7 @@
     ],
     "i18n": {
       "en-US": {
-        "name": "DigitalClockTestAgain"
+        "name": "DigitalClockTest"
       }
     },
     "defaultLanguage": "en-US"

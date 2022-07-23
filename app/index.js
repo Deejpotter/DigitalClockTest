@@ -5,7 +5,7 @@ import { preferences } from "user-settings";
 import * as util from "../common/utils";
 
 // Update the clock every minute
-clock.granularity = "minutes";
+display.on ? clock.granularity = "seconds" : clock.granularity = "minutes";
 
 // Get a handle on the <text> element
 const myLabel = document.getElementById("myLabel");
@@ -23,6 +23,9 @@ clock.ontick = (evt) => {
   }
   let mins = util.zeroPad(today.getMinutes());
   myLabel.text = `${hours}:${mins}`;
-}
 
-if
+  if (display.on) {
+    let secs = util.zeroPad(today.getSeconds());
+    myLabel.text = `${hours}:${mins}:${secs}`;
+  }
+}
