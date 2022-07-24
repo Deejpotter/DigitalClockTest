@@ -1,11 +1,14 @@
 {
   "scripts": {
-    "start": "npx fitbit",
+    "start": "npx fitbit deejpotter@gmail.com",
     "build": "fitbit-build"
   },
   "devDependencies": {
     "@fitbit/sdk": "~4.3.0",
-    "@fitbit/sdk-cli": "^1.7.3"
+    "@fitbit/sdk-cli": "^1.7.3",
+    "fitbit-sdk-types": "^7.0.5",
+    "simple-fitbit-settings": "^3.1.0",
+    "@chris-lewis/fitbit-utils": "^1.2.1"
   },
   "fitbit": {
     "appUUID": "f5a20ca1-92a6-49fc-97c4-0a59df6a7fb0",
@@ -13,7 +16,11 @@
     "appDisplayName": "DigitalClockTest",
     "iconFile": "resources/icon.png",
     "wipeColor": "",
-    "requestedPermissions": [],
+    "requestedPermissions": [
+      "access_activity",
+      "access_heart_rate",
+      "access_user_profile"
+    ],
     "buildTargets": [
       "mira",
       "gemini"
