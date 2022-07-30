@@ -14,13 +14,32 @@ let iconHRM = document.getElementById("iconHRM");
 let imgHRM = iconHRM.getElementById("icon");
 let statsCycle = document.getElementById("stats-cycle");
 let statsCycleItems = statsCycle.getElementsByClassName("cycle-item");
+const clockGranularity = "seconds";
+
+/* --------- Gradient ---------- */
+// const gradientNumber = 60;
+// const gradientStart = -gradientNumber;
+// let currentGradient = gradientStart;
+// function getGradient(seconds) {
+//   if (seconds > 59 || seconds == 0) {
+//     currentGradient = gradientStart;
+//   } else {
+//     currentGradient += gradientNumber / 30;
+//   }
+// }
 
 /* --------- CLOCK ---------- */
 function clockCallback(data) {
   txtTime.text = data.time;
   txtDate.text = data.date;
+  background.gradient.x1 = data.seconds * 1.66;
+  // if (data.seconds) {
+  //   getGradient(data.seconds);
+  //   background.gradient.x1 = currentGradient;
+  //   console.log(currentGradient);
+  // }
 }
-simpleClock.initialize("minutes", "longDate", clockCallback);
+simpleClock.initialize(clockGranularity, "longDate", clockCallback);
 
 /* ------- ACTIVITY --------- */
 function activityCallback(data) {
@@ -32,7 +51,7 @@ function activityCallback(data) {
     img.x = txt.getBBox().x - txt.parent.getBBox().x - img.width - 7;
   });
 }
-simpleActivity.initialize("seconds", activityCallback);
+simpleActivity.initialize(clockGranularity, activityCallback);
 
 /* -------- HRM ------------- */
 function hrmCallback(data) {
@@ -53,8 +72,11 @@ function settingsCallback(data) {
   if (!data) {
     return;
   }
-  if (data.background) {
-    background.style.fill = data.background;
+  if (data.background1) {
+    background.gradient.colors.c1 = data.background1;
+  }
+  if (data.background2) {
+    background.gradient.colors.c2 = data.background2;
   }
   if (data.foreground) {
     txtTime.style.fill = data.foreground;

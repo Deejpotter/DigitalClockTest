@@ -50,8 +50,9 @@ const colorSet = [
 ];
 
 const colourOptions = [
-  ['Background Color', 'background'],
-  ['Foreground Colour', 'foreground'],
+  ['Background Color 1', 'background1'],
+  ['Background Colour 2', 'background2'],
+  ['Foreground Colour', 'foreground']
 ];
 
 function mySettings(props) {

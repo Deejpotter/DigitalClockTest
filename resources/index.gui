@@ -1,5 +1,5 @@
 <svg>
-  <rect id="background" />
+  <gradientRect id="background"/>
   <text id="txtTime" class="clock-text">13:37</text>
   <rect class="divider divider-top" />
   <text id="txtDate" class="date-text">MON JANUARY 01</text>
