@@ -1,4 +1,6 @@
 import document from "document";
+import device from "device";
+if (!device.screen) device.screen = { width: 348, height: 250 };
 
 import * as simpleActivity from "./simple/activity";
 import * as simpleClock from "./simple/clock";
@@ -17,26 +19,26 @@ let statsCycleItems = statsCycle.getElementsByClassName("cycle-item");
 const clockGranularity = "seconds";
 
 /* --------- Gradient ---------- */
-// const gradientNumber = 60;
-// const gradientStart = -gradientNumber;
-// let currentGradient = gradientStart;
-// function getGradient(seconds) {
-//   if (seconds > 59 || seconds == 0) {
-//     currentGradient = gradientStart;
-//   } else {
-//     currentGradient += gradientNumber / 30;
-//   }
-// }
+const gradientNumber = device.screen.width;
+const gradientStart = 0;
+let currentGradient = gradientStart;
+function setGradient(seconds) {
+  if (seconds > 59 || seconds == 0) {
+    currentGradient = gradientStart;
+  } else {
+    currentGradient += gradientNumber / 60;
+  }
+}
 
 /* --------- CLOCK ---------- */
 function clockCallback(data) {
   txtTime.text = data.time;
   txtDate.text = data.date;
-  background.gradient.x1 = data.seconds * 1.66;
+  // background.gradient.x1 = data.seconds * 2;
   // if (data.seconds) {
-  //   getGradient(data.seconds);
-  //   background.gradient.x1 = currentGradient;
-  //   console.log(currentGradient);
+  setGradient(data.seconds);
+  background.gradient.x1 = currentGradient;
+  console.log(currentGradient);
   // }
 }
 simpleClock.initialize(clockGranularity, "longDate", clockCallback);

@@ -20,7 +20,7 @@ export function initialize(callback) {
 }
 
 // Received message containing settings data
-messaging.peerSocket.addEventListener("message", function(evt) {
+messaging.peerSocket.addEventListener("message", function (evt) {
   settings[evt.data.key] = evt.data.value;
   onsettingschange(settings);
 })
@@ -29,10 +29,12 @@ messaging.peerSocket.addEventListener("message", function(evt) {
 me.addEventListener("unload", saveSettings);
 
 // Load settings from filesystem
-function loadSettings() {
+async function loadSettings() {
   try {
+    console.log(fs.readFileSync(SETTINGS_FILE, SETTINGS_TYPE));
     return fs.readFileSync(SETTINGS_FILE, SETTINGS_TYPE);
   } catch (ex) {
+    console.error(ex.message.toString());
     return {};
   }
 }
