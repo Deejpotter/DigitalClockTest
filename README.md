@@ -4,16 +4,16 @@ A basic digital clock for Fitbit Versa 2 and Versa Lite but the background gradi
 
 ## The gradient updates with the seconds
 
-<img src="./screenshots/FitbitGradientClock01.png" width="40%" 
-style="margin-right: 1rem">
-<img src="./screenshots/FitbitGradientClock02.png" width="40%">
+<img src="./screenshots/FitbitGradientClock02.png" width="40%" 
+style="margin-right: 2rem">
+<img src="./screenshots/FitbitGradientClock01.png" width="40%">
 
 ## Change the settings
 
 <img src="./screenshots/FitbitGradientClock03.png" width="25%"
-style="margin-right: 1rem">
+style="margin-right: 2rem">
 <img src="./screenshots/FitbitGradientClock04.png" width="25%"
-style="margin-right: 1rem">
+style="margin-right: 2rem">
 <img src="./screenshots/FitbitGradientClock05.png" width="25%">
 
 ## Update the gradient
